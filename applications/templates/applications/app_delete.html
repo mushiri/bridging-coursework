@@ -1,0 +1,9 @@
+{% extends 'applications/base.html' %}
+
+{% block content %}
+    <h1>Delete app</h1>
+        <form action="" method="post">{% csrf_token %}
+        <p>Are you sure you want to delete "{{ app.title }}"?</p>
+        <input type="submit" value="Confirm">
+    </form>
+{% endblock content %}

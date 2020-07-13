@@ -1,0 +1,22 @@
+{% extends 'applications/base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <img src="{% static app.image_detail %}" alt="" width="100%" class="image_detail" style="border-radius: 10px">
+    </div>
+    <div class="col-md-4">
+        <div class="detail">
+            <h3><strong>About the application</strong></h3>
+            <p>{{ app.description }}</p>
+            <br>
+        </div>
+    </div>
+</div>
+    {% if user.is_authenticated %}
+        <p><a href="{% url 'app_edit' app.pk %}"><input type="submit" value="Edit" class="button"></a></p>
+        <p><a href="{% url 'app_delete' app.pk %}"><input type="submit" value="Delete" class="button"></a></p>
+    {% endif %}
+{% endblock content %}

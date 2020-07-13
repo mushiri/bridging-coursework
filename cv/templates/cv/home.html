@@ -1,0 +1,14 @@
+{% extends 'cv/base.html' %}
+
+{% block content %}
+<div class="page">
+    {% for card in object_list %}
+        <div class="card-entry">
+            <div class="title">
+                <h2><a href="{% url 'card_detail' card.pk %}">{{ card.title }}</a></h2>
+            </div>
+            <p>{{ card.body|safe }}</p>
+        </div>
+    {% endfor %}
+</div>
+{% endblock content %}

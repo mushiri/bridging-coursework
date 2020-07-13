@@ -1,0 +1,15 @@
+{% extends 'cv/base.html' %}
+
+{% block content %}
+    <div class="card-entry">
+        <div class="title">
+            <h2>{{ card.title }}</h2>
+        </div>
+        <p>{{ card.body|safe }}</p>
+    </div>
+
+    {% if user.is_authenticated %}
+        <p><a href="{% url 'card_edit' card.pk %}"><input type="submit" value="Edit" class="button"></a></p>
+        <p><a href="{% url 'card_delete' card.pk %}"><input type="submit" value="Delete" class="button"></a></p>
+    {% endif %}
+{% endblock content %}

@@ -1,0 +1,14 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <div class="post-entry">
+        <p>{{ post.date }}</p>
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.body|linebreaksbr }}</p>
+    </div>
+
+    {% if user.is_authenticated %}
+        <p><a href="{% url 'post_edit' post.pk %}"><input type="submit" value="Edit" class="button"></a></p>
+        <p><a href="{% url 'post_delete' post.pk %}"><input type="submit" value="Delete" class="button"></a></p>
+    {% endif %}
+{% endblock content %}

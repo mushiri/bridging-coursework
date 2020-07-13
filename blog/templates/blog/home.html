@@ -1,0 +1,14 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <div class="secret">
+        <h3><a href="{% url 'secret' %}" class="secret">secret</a></h3>
+    </div>
+    {% for post in object_list %}
+        <div class="post-entry">
+            <p>{{ post.date }}</p>
+            <h2><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h2>
+            <p>{{ post.body|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
+{% endblock content %}
