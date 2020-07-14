@@ -24,6 +24,46 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
       <div class="container">
+
+          <!-- COVID ALERT -->
+          <div class="left-box">
+          <style>
+              .left-box {
+                  position: absolute;
+                  left: 50px;
+                  width: 200px;
+                  line-height: 40px;
+              }
+              .sign {
+                  color: black;
+                  font-size: 26px;
+              }
+              .info {
+                  color: black;
+                  font-size: 16px;
+              }
+          </style>
+              <div class="alert alert-warning" role="alert">
+                    <div class="sign">
+                        <span>&#9888; COVID-19 &#9888;</span>
+                    </div>
+                    <ul>
+                        <div class="info">
+                            <li>
+                                <p>Wash Hands</p>
+                            </li>
+                            <li>
+                                <p>Wear Mask</p>
+                            </li>
+                            <li>
+                                <p>Keep Distance</p>
+                            </li>
+                        </div>
+                    </ul>
+              </div>
+          </div>
+          <!-- COVID ALERT -->
+
           {% block page_content %}
           {% endblock %}
       </div>
