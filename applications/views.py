@@ -19,12 +19,12 @@ class AppDetailView(DetailView):
 class AppCreateView(CreateView):
     model = App
     template_name = 'applications/app_new.html'
-    fields = ['author', 'description', 'image_main', 'image_detail']
+    fields = ['title', 'author', 'body', 'image']
 
 class AppUpdateView(UpdateView):
     model = App
     template_name = 'applications/app_edit.html'
-    fields = ['description', 'image_main', 'image_detail']
+    fields = ['title', 'body', 'image']
 
 class AppDeleteView(DeleteView):
     model = App

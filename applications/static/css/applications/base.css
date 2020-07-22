@@ -7,7 +7,7 @@ header {
     border-style: solid;
     border-color: #030303;
     border-width: 4px;
-    background: -webkit-linear-gradient(left, #ee5050, #f36060, #ee9f9f, #f5d0d0);
+    background: -webkit-linear-gradient(left, #bd0303, #c70707, #dc0c0c, #f34f4f);
     margin-bottom: 6rem;
     display: flex;
     margin-top: 0;
@@ -45,21 +45,21 @@ header h1 a {
     text-decoration: none;
 }
 
-
 .content {
     margin-left: 70px;
 }
 
 .card-img-top {
     width: 100%;
-    height: 15vw;
+    height: 100%;
     object-fit: cover;
 }
 
 .card {
+    border-style: solid;
     border-color: black;
     border-width: 2px;
-    box-shadow: 5px 10px #0a0a0a;
+    box-shadow: 0 10px 20px rgb(69, 69, 69),0 6px 6px rgb(121, 121, 121);
 }
 
 .row {
@@ -77,13 +77,14 @@ header h1 a {
 }
 
 .detail {
-    margin-top: -20px;
+    margin-top: -50px;
+    padding-left: -100px;
 }
 
 .readmore {
     background: -webkit-linear-gradient(left, #4c4c4c, #727272, #a1a1a1, #bbbbbb);
-    border: solid;
-    border-radius: 1px;
+    border: 1px solid;
+    border-radius: 0.1px;
     color: #ffffff;
     cursor: pointer;
     width: 100%;
@@ -96,4 +97,22 @@ header h1 a {
 
 .btn.readmore:focus {
     outline:0;
+}
+
+
+.app-entry {
+    margin-bottom: 3rem;
+    margin-left: -50px;
+    font-size: 20px;
+}
+
+.app-entry h2 {
+    margin-bottom: 2rem;
+    font-size: 24px;
+    font-family: ".SF NS";
+}
+
+.app-entry p {
+    margin: 0;
+    font-weight: 400;
 }
