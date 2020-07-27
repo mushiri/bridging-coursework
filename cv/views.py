@@ -10,7 +10,7 @@ from .models import Card
 
 class CardListView(ListView):
     model = Card
-    template_name = 'cv/home.html'
+    template_name = 'cv/card_list.html'
 
 class CardDetailView(DetailView):
     model = Card
@@ -29,4 +29,4 @@ class CardUpdateView(UpdateView):
 class CardDeleteView(DeleteView):
     model = Card
     template_name = 'cv/card_delete.html'
-    success_url = reverse_lazy('home_cv')
+    success_url = reverse_lazy('card_list')

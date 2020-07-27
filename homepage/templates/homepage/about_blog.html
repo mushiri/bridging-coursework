@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html>
+<head>
+	<title>About Blog</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+	<link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/default.css' %}?{% now 'U' %}">
+	<link id="theme-style" rel="stylesheet" type="text/css" href="">
+	<link rel="icon" href="{% static 'img/home/web.png' %}">
+	<style type="text/css">
+		.img-container{
+			max-width: 600px;
+		}
+
+		img{
+			width: 100%
+		}
+	</style>
+</head>
+<body>
+	<div class="nav-wrapper">
+		<a href="{% url 'index' %}">
+			<div class="dots-wrapper">
+				<div id="dot-1" class="browser-dot"></div>
+				<div id="dot-2" class="browser-dot"></div>
+				<div id="dot-3" class="browser-dot"></div>
+			</div>
+		</a>
+
+	</div>
+<section class="s1">
+	<div class="main-container">
+		<div id="border">
+			<h1>About Blog</h1>
+        </div>
+		<br>
+		<p>The coursework was announced on May 15th. The purpose of the coursework was to create a CV using Django.</p>
+		<p>Everything was new, and I did not have much knowledge regarding web application nor Django. The first tutorial that I started was
+		'Django Girls Tutorial'.</p>
+		<p>I took this opportunity to learn more about web development.</p>
+		<p>The tutorial was aimed for beginners, and the resulting application was a blog.</p>
+		<p>I learnt the basics of web development as well as how Django works.</p>
+		<p>After experiencing with Django and learning more about it, I followed a different approach.</p>
+		<p>The tutorial followed a "function-based views" rather than "class-based views" which I have used.</p>
+		<p>Using "class-based views" is much easier in my opinion. Since all my projects use 'CRUD' mechanism.</p>
+		<p>In other words, Creating, Reading, Updating, and Deleting. Using Django's built-in templates made it easier when using "class-based views". </p>
+		<br>
+
+		<h5>Technologies:</h5>
+		<ul>
+			<li>- Django</li>
+			<li>- HTML/CSS</li>
+			<li>- Pythonanywhere</li>
+			<li>- Javascript</li>
+		</ul>
+
+		<h5>Accessing the Project</h5>
+		<p>The actual project can be accessed from the homepage as shown below in the image.</p>
+		<div class="img-container">
+			<img src="{% static 'img/blog/access.png' %}">
+		</div>
+
+		<h5>Admin Panel</h5>
+		<p>This feature is not shown to default users. I can add new posts.</p>
+		<div class="img-container">
+			<img src="{% static 'img/blog/admin.png' %}">
+		</div>
+
+		<h5>Adding Posts</h5>
+		<p>The model uses three variables. Namely, title, author, and body.</p>
+		<div class="img-container">
+			<img src="{% static 'img/blog/new_post.png' %}">
+		</div>
+
+		<h5>Detail Posts</h5>
+		<p>As an admin, I can click on a post and either update it or delete it.</p>
+		<div class="img-container">
+			<img src="{% static 'img/blog/detail_post.png' %}">
+		</div>
+
+		<h5>Editing Posts</h5>
+		<p>A demonstration of the edit panel</p>
+		<div class="img-container">
+			<img src="{% static 'img/blog/edit_post.png' %}">
+		</div>
+
+		<h5>Deleting Posts</h5>
+		<p>A demonstration of the delete panel</p>
+		<div class="img-container">
+			<img src="{% static 'img/blog/delete_post.png' %}">
+		</div>
+	</div>
+</section>
+
+		<script>
+		console.log('Its working')
+
+		let theme = localStorage.getItem('theme')
+
+		if (theme == null) {
+			setTheme('light')
+		} else {
+			setTheme(theme)
+		}
+
+		let themeDots = document.getElementsByClassName('theme-dot')
+
+
+		for (var i = 0; themeDots.length > i; i++) {
+			themeDots[i].addEventListener('click', function () {
+				let mode = this.dataset.mode
+				console.log('Option clicked:', mode)
+				setTheme(mode)
+			})
+		}
+
+		function setTheme(mode) {
+			if (mode == 'light') {
+				document.getElementById('theme-style').href = "{% static 'css/default.css' %}?{% now 'U' %}"
+			}
+
+			if (mode == 'blue') {
+				document.getElementById('theme-style').href = "{% static 'css/blue.css' %}?{% now 'U' %}"
+			}
+
+			if (mode == 'green') {
+				document.getElementById('theme-style').href = "{% static 'css/green.css' %}?{% now 'U' %}"
+			}
+
+			if (mode == 'purple') {
+				document.getElementById('theme-style').href = "{% static 'css/purple.css' %}?{% now 'U' %}"
+			}
+
+			localStorage.setItem('theme', mode)
+		}
+	</script>
+</body>
+</html>

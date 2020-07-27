@@ -22,10 +22,10 @@ class CvTests(TestCase):
         self.assertEqual(f'{self.card.body}', 'Nice body content')
 
     def test_card_list_view(self):
-        response = self.client.get(reverse('home_cv'))
+        response = self.client.get(reverse('card_list'))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'Nice body content')
-        self.assertTemplateUsed(response, 'cv/home.html')
+        self.assertTemplateUsed(response, 'cv/card_list.html')
 
     def test_card_detail_view(self):
         response = self.client.get('/cv/card/1/')

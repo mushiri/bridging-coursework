@@ -1,34 +1,88 @@
-{% extends 'applications/navbar.html' %}
+<!DOCTYPE html>
 
 {% load static %}
 
-{% block page_content %}
 <html>
-    <head>
-        <title>CV</title>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400"
-        rel="stylesheet">
-        <link href="{% static 'css/cv/base.css' %}?{% now 'U' %}" rel="stylesheet">
-    </head>
-    <body>
-        <div>
-            <header>
-                <div class="nav-left">
-                    <h1><a href="{% url 'home_cv' %}">CV</a></h1>
-                </div>
-                <div class="nav-right">
-                    {% if user.is_authenticated %}
-                        <a href="{% url 'card_new' %}"><span class="glyphicon glyphicon-plus"></span></a>
-                    {% endif %}
-                </div>
-            </header>
-            <div class="content">
-                {% block content %}
-                {% endblock content %}
-            </div>
+<head>
+    <title>CV</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1"/>
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Indie+Flower" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/default.css' %}?{% now 'U' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/cv.css' %}?{% now 'U' %}">
+    <link id="theme-style" rel="stylesheet" type="text/css" href="">
+    <link rel="icon" href="{% static 'img/home/web.png' %}">
+</head>
+<body>
+<div class="nav-wrapper">
+    <a href="{% url 'index' %}">
+        <div class="dots-wrapper">
+            <div id="dot-1" class="browser-dot"></div>
+            <div id="dot-2" class="browser-dot"></div>
+            <div id="dot-3" class="browser-dot"></div>
         </div>
-    </body>
+    </a>
+
+    {% if user.is_authenticated %}
+    <ul id="navigation">
+        <li><a href="{% url 'card_new' %}">Add card <i class="fa fa-plus" aria-hidden="true"></i></a></li>
+    </ul>
+    {% endif %}
+
+</div>
+<section class="s1">
+    <div class="main-container">
+        <div id="border">
+			<a href="{% url 'card_list' %}"><h1>CV</h1></a>
+        </div>
+        {% block content %}
+        {% endblock content %}
+    </div>
+</section>
+
+<script>
+    console.log('Its working')
+
+    let theme = localStorage.getItem('theme')
+
+    if (theme == null) {
+        setTheme('light')
+    } else {
+        setTheme(theme)
+    }
+
+    let themeDots = document.getElementsByClassName('theme-dot')
+
+
+    for (var i = 0; themeDots.length > i; i++) {
+        themeDots[i].addEventListener('click', function () {
+            let mode = this.dataset.mode
+            console.log('Option clicked:', mode)
+            setTheme(mode)
+        })
+    }
+
+    function setTheme(mode) {
+        if (mode == 'light') {
+            document.getElementById('theme-style').href = "{% static 'css/default.css' %}?{% now 'U' %}"
+        }
+
+        if (mode == 'blue') {
+            document.getElementById('theme-style').href = "{% static 'css/blue.css' %}?{% now 'U' %}"
+        }
+
+        if (mode == 'green') {
+            document.getElementById('theme-style').href = "{% static 'css/green.css' %}?{% now 'U' %}"
+        }
+
+        if (mode == 'purple') {
+            document.getElementById('theme-style').href = "{% static 'css/purple.css' %}?{% now 'U' %}"
+        }
+
+        localStorage.setItem('theme', mode)
+    }
+</script>
+</body>
 </html>
-{% endblock %}

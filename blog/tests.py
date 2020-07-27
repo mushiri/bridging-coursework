@@ -22,10 +22,10 @@ class BlogTests(TestCase):
         self.assertEqual(f'{self.post.body}', 'Nice body content')
 
     def test_post_list_view(self):
-        response = self.client.get(reverse('home_blog'))
+        response = self.client.get(reverse('post_list'))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'Nice body content')
-        self.assertTemplateUsed(response, 'blog/home.html')
+        self.assertTemplateUsed(response, 'blog/post_list.html')
 
     def test_post_detail_view(self):
         response = self.client.get('/blog/post/1/')
@@ -59,4 +59,3 @@ class BlogTests(TestCase):
             reverse('post_delete', args='1'))
 
         self.assertEqual(response.status_code, 302)
-

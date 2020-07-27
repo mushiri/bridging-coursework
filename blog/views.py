@@ -10,7 +10,7 @@ from django.views.generic import (
 
 class BlogListView(ListView):
     model = Post
-    template_name = 'blog/home.html'
+    template_name = 'blog/post_list.html'
 
 class BlogDetailView(DetailView):
     model = Post
@@ -29,4 +29,4 @@ class BlogUpdateView(UpdateView):
 class BlogDeleteView(DeleteView):
     model = Post
     template_name = 'blog/post_delete.html'
-    success_url = reverse_lazy('home_blog')
+    success_url = reverse_lazy('post_list')
